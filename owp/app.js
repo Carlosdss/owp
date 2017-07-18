@@ -5,18 +5,21 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/owp");
-const index = require('./routes/index');
-const authRoutes = require("./routes/auth-routes");
 const session       = require("express-session");
 const bcrypt        = require("bcrypt");
 const passport      = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const flash = require("connect-flash");
+
+const index = require('./routes/index');
+const authRoutes = require("./routes/auth-routes");
+const core = require("./routes/core");
+
 const User = require("./models/User");
 
-
 var app = express();
+
+mongoose.connect("mongodb://localhost/owp");
 
 app.use(session({
   secret: "owp",
@@ -69,6 +72,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/', authRoutes);
+app.use('/plans', core);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -17,32 +17,28 @@
     <link href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
 
     <header class="ccheader">
-        <h1>Welcome to OWT! Sign up for free</h1>
-        <h2>Please, give us some info about you.</h2>
+        <img src="../public/images/OWTlogo.png"> </img>
+        <h2>Propose you plan!</h2>
     </header>
     <div class="wrapper">
         <form method="post" action="" class="ccform">
-          <div class="ccfield-prepend">
-              <span class="ccform-addon"><i class="fa fa-user-circle fa-2x"></i></span>
-              <input class="ccformfield" type="text" name="username" placeholder="User Name" required>
-          </div>
 
         <div class="ccfield-prepend">
-            <span class="ccform-addon"><i class="fa fa-user fa-2x"></i></span>
-            <input class="ccformfield" type="text" name="fullname" placeholder="Full Name" required>
+            <span class="ccform-addon"><i class="fa fa-key fa-2x"></i></span>
+            <input class="ccformfield" type="text" name="title" placeholder="Title of the event" required>
         </div>
         <div class="ccfield-prepend">
-            <span class="ccform-addon"><i class="fa fa-envelope fa-2x" aria-hidden="true"></i></span>
-            <input class="ccformfield" type="text" name="email" placeholder="Email" required>
+            <span class="ccform-addon"><i class="fa fa-keyboard-o fa-2x" aria-hidden="true"></i></span>
+            <input class="ccformfield" type="text" name="description" placeholder="Plan description" required>
         </div>
         <div class="ccfield-prepend">
-           <span class="ccform-addon"><i class="fa fa-lock fa-2x"></i></span>
-           <input class="ccformfield" type="password" name="password" placeholder="Password" required>
+           <span class="ccform-addon"><i class="fa fa-sort-alpha-asc fa-2x"></i></span>
+           <input class="ccformfield" type="text" name="category" placeholder="Category" required>
        </div>
-        <div class="ccfield-prepend">
-            <span class="ccform-addon"><i class="fa fa-file-image-o fa-2x"></i></span>
-            <input class="ccformfield" type="text" placeholder="Profile picture">
-        </div>
+       <div class="ccfield-prepend">
+          <span class="ccform-addon"><i class="fa fa-calendar fa-2x"></i></span>
+          <input class="ccformfield" type="date" name="date" placeholder="Date" required>
+      </div>
 
         <% if (typeof message !== "undefined") { %>
           <div class="error-message"><%= message %></div>
