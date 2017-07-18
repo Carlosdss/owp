@@ -4,14 +4,14 @@ const passport = require("passport");
 const ensureLogin = require("connect-ensure-login");
 
 // User model
-const User = require("../models/user");
+const User = require("../models/User");
 
 // Bcrypt to encrypt passwords
 const bcrypt     = require("bcrypt");
 const bcryptSalt = 10;
 
 authRoutes.get("/login", (req, res, next) => {
-  res.render("auth/login", { "message": req.flash("error") });
+  res.render("auth/login");
 });
 
 authRoutes.post("/login", passport.authenticate("local", {
@@ -28,10 +28,12 @@ authRoutes.get("/signup", (req, res, next) => {
 
 authRoutes.post("/signup", (req, res, next) => {
   const username = req.body.username;
+  const fullname = req.body.fullname;
+  const email = req.body.email;
   const password = req.body.password;
 
-  if (username === "" || password === "") {
-    res.render("auth/signup", { message: "Indicate username and password" });
+  if (username === "" || fullname === "" || password === "" || email === "") {
+    res.render("auth/signup", { message: "Please, complete all the fields" });
     return;
   }
 
@@ -46,6 +48,8 @@ authRoutes.post("/signup", (req, res, next) => {
 
     const newUser = User({
       username: username,
+      fullname: fullname,
+      email: email,
       password: hashPass
     });
 

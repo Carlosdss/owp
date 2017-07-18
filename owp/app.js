@@ -12,7 +12,8 @@ const session       = require("express-session");
 const bcrypt        = require("bcrypt");
 const passport      = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
-const flash = require("connect-flash")
+const flash = require("connect-flash");
+const User = require("./models/User");
 
 
 var app = express();
@@ -35,14 +36,8 @@ passport.deserializeUser((id, cb) => {
   });
 });
 
-
-
-app.use(flash());
-
-passport.use(new LocalStrategy({
-  passReqToCallback: true
-}, (req, username, password, next) => {
-  User.findOne({ username }, (err, user) => {
+passport.use(new LocalStrategy((username, password, next) => {
+  User.findOne({username}, (err, user) => {
     if (err) {
       return next(err);
     }
@@ -52,10 +47,10 @@ passport.use(new LocalStrategy({
     if (!bcrypt.compareSync(password, user.password)) {
       return next(null, false, { message: "Incorrect password" });
     }
-
     return next(null, user);
   });
 }));
+
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -73,7 +68,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('/auth', authRoutes);
+app.use('/', authRoutes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
