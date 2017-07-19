@@ -17,11 +17,11 @@
     <link href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
 
     <header class="ccheader">
-        <img src="../public/images/OWTlogo.png"> </img>
-        <h2>Propose you plan!</h2>
+        <img src="/images/OWP.png"> </img>
+        <h2>Propose your plan!</h2>
     </header>
     <div class="wrapper">
-        <form method="post" action="" class="ccform">
+        <form method="post" action="/plans/newPlan" class="ccform" enctype="multipart/form-data">
 
         <div class="ccfield-prepend">
             <span class="ccform-addon"><i class="fa fa-key fa-2x"></i></span>
@@ -37,8 +37,13 @@
        </div>
        <div class="ccfield-prepend">
           <span class="ccform-addon"><i class="fa fa-calendar fa-2x"></i></span>
-          <input class="ccformfield" type="date" name="date" placeholder="Date" required>
+          <input class="ccformfield" type="datetime-local" name="date" valueplaceholder="Date" required>
       </div>
+
+      <div class="ccfield-prepend">
+         <span class="ccform-addon"><i class="fa fa-image fa-2x"></i></span>
+         <input class="ccformfield" type="file" name="photo" placeholder="Photo">
+     </div>
 
         <% if (typeof message !== "undefined") { %>
           <div class="error-message"><%= message %></div>
