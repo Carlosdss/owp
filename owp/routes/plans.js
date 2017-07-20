@@ -81,19 +81,12 @@ router.post("/newPlan", upload.single('photo'), function(req, res, next) {
   });
 });
 
-
 router.get('/:id', /*checkOwnership,*/ (req, res, next) => {
   Plan.findById(req.params.id, (err, plan) => {
-    if (err){ return next(err); }
-
-    //Plan.populate('creator', (err, campaign) => {
-      //if (err){ return next(err); }
+    if (err){return next(err);}
       return res.render('planDetails', { plan });
     });
-
-  });
 });
-
 
 
 

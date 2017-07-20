@@ -103,7 +103,6 @@ function deleteMarkers() {
   function geocodeAddress(geocoder, resultsMap) {
 	  var address = document.getElementById('address').value;
 	  console.log("The adress is " + address);
-		var buttonCreate = document.getElementById('newResButton');
 	  geocoder.geocode({'address': address}, function(results, status) {
 	    if (status === 'OK') {
 	      resultsMap.setCenter(results[0].geometry.location);
@@ -124,11 +123,6 @@ function deleteMarkers() {
 				}
 	      document.getElementById('lat').value = results[0].geometry.location.lat();
 	      document.getElementById('lon').value = results[0].geometry.location.lng();
-
-				if (!buttonCreate){
-				var $button = $('<input>').attr('id', 'newResButton').attr('type','submit').attr('value','Crea el restaurante');
-				$("#restform").append($button);
-				}
 
 				} else {
 	      alert('Geocode was not successful for the following reason: ' + status);
