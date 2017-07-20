@@ -18,16 +18,21 @@ router.post("/newPlan", upload.single('photo'), function(req, res, next){
   const description = req.body.description;
   const category = req.body.category;
   const date = req.body.date;
-
-  console.log(title)
-  console.log(description)
-  console.log(category)
-  console.log(date)
-  console.log(`/uploads/${req.file.filename}`,)
-  console.log(req.file.originalname)
+  const latitude = req.body.latitude;
+  const longitude = req.body.longitude;
 
   if (title === "" || description === "" || category === "" || date === "") {
     res.render("newPlan", { message: "Please, complete all the fields" });
+    return;
+  }
+
+  if (!req.file) {
+    res.render("newPlan", { message: "Please, upload a picture" });
+    return;
+  }
+
+if (latitude === "" || longitude === "") {
+    res.render("newPlan", { message: "Please, specify a valid address" });
     return;
   }
 
@@ -37,7 +42,11 @@ router.post("/newPlan", upload.single('photo'), function(req, res, next){
       category: category,
       date: date,
       picPath: `/uploads/${req.file.filename}`,
-      picName: req.file.originalname
+      picName: req.file.originalname,
+      location: {
+        type: "Point",
+        coordinates:[req.body.latitude, req.body.longitude]
+      }
     });
 
     newPlan.save((err) => {

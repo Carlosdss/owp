@@ -15,6 +15,7 @@ body {
 	margin: 0 auto;
 	padding: 2em;
 	text-align: center;
+	margin-bottom:
 }
 
 .ccheader h1 {
@@ -103,4 +104,28 @@ text-decoration: none;
  #creditName{
    font-size: 1.4em;
    font-style: italic;
+ }
+
+ #map{
+	 height: 300px;
+	 width: 75%;
+	 margin-left: 12%;
+	 margin-bottom: 1%;
+ }
+
+ .ccsubheader {
+	margin: 0;
+	font-weight: bold;
+	font-size: 2em;
+	text-align: center;
+ }
+
+ .ccsubheaderLinkBack a {
+	 color: white;
+	 text-decoration: none;
+	 font-weight: bold;
+	 position: fixed;
+	 top: 2%;
+	 left: 2%;
+	 font-size: 3em;
  }

@@ -16,9 +16,14 @@
 
     <link href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
 
-    <header class="ccsubheader" style="text-align: center">
-        <h2>Propose your plan!</h2>
-    </header>
+    <div class="ccsubheader">
+        Propose your plan!
+    </div>
+
+    <div class="ccsubheaderLinkBack" style="text-align: center">
+        <a href="/">Back</a>
+    </div>
+
     <div class="wrapper">
         <form method="post" action="/plans/newPlan" class="ccform" enctype="multipart/form-data">
 
@@ -44,8 +49,18 @@
          <input class="ccformfield" type="file" name="photo" placeholder="Photo">
      </div>
 
+      <div class="ccfield-prepend">
+         <span class="ccform-addon"><i class="fa fa-map-marker fa-2x"></i></span>
+         <input class="ccformfield" id="address" type="text" name="addres" valueplaceholder="Address" required>
+         <input type="hidden" id="lat" name="latitude" placeholder="Latitude" >
+         <input type="hidden" id="lon" name="longitude" placeholder="Longitude">
+            <input type="button" id="submit" value="Show position">
+     </div>
+
+     <div id="map"></div>
+
         <% if (typeof message !== "undefined") { %>
-          <div class="error-message"><%= message %></div>
+          <div class="error-message" style="margin-left: 35%" style="font-size: 2em"><%= message %></div>
         <% } %>
         <br><br>
 
@@ -63,5 +78,10 @@
         Any information collected in this manner is never shared with anyone unless expressly requested by the user.
         We do not sell or reveal user information to anyone. </p>
     </div>
-  </body>
+
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrtmNUIUV5jizOKyGvM3a6tlpRPvAac-Y&libraries=places"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+	  <script type="text/javascript" src="/javascripts/new.js"></script>
+    </body>
 </html>

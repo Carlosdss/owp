@@ -8,7 +8,7 @@ const PlanSchema = new Schema({
   category : { type: String, required: true },
   //creator : { type: Schema.Types.ObjectId, ref: 'User', required: true },
   date : { type: Date, required: true },
-  //location : { type: { type: String }, coordinates: [Number] },
+  location : { type: { type: String }, coordinates: [Number] },
   picPath : String,
   picName : String,
   usersAssisting: []
