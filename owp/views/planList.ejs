@@ -1,33 +1,51 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <link rel="stylesheet" href="/stylesheets/style.css">
-  </head>
-  <body>
 
-<div class="Plan-row row">
+<head>
+  <meta charset="utf-8">
+  <title></title>
 
-    <h3 class="text-center">You may be interested in...</h3>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+
+<body>
+
+  <div class="Plan-row row">
+
+    <h3 class="text-center">These are the current plans proposed...</h3>
 
     <% plans.forEach((plan) => { %>
-      <div class="col-sm-3 home-plan-box">
+      <div class="home-plan-box">
 
-        <a href="/plans/<%= plan._id %>"> <img src="<%= plan.picPath %>"> </a>
-
-        <div class="plan-info-wrapper">
-
-          <a class="title" href="/plans/<%= plan._id %>">
-            <strong><%= plan.title %></strong>
-          </a><br>
-
-          by <span class="light-text"><%= plan.creator %></span><br>
-          <span class="light-text description"><%= plan.description %></span>
+        <div class="listImgBox col-sm-6">
+          <a href="/plans/<%= plan._id %>"> <img id="listImg" src="<%= plan.picPath %>"> </a>
         </div>
+
+        <div class="plan-info-wrapper col-sm-6">
+
+          <div>
+            <a class="title" href="/plans/<%= plan._id %>"> <strong> <%= plan.title %> </strong> </a>
+          </div>
+          <span id="listCreator"> by <%= plan.creator %></span>
+          <br>
+          <br>
+          <div id="light-text listDescription"> <%= plan.description %> </div>
+          <br>
+          <br>
+          <div id="light-text listDate"> <time datetime="1914-12-20 08:00"><%= plan.date %> </time> </div>
+
+
+        </div>
+
       </div>
-    <%  }) %>
+
+      <%  }) %>
   </div>
-  
+
 </body>
+
 </html>
