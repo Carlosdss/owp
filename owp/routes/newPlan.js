@@ -4,12 +4,11 @@ const passport = require("passport");
 const ensureLogin = require("connect-ensure-login");
 const multer  = require('multer');
 const upload = multer({ dest: './public/uploads/' });
-
-// Plan model
+const TYPES = require('../models/plan-types');
 const Plan = require("../models/Plan");
 
 router.get("/newPlan", (req, res, next) => {
-  res.render("newPlan");
+  res.render("newPlan", {types: TYPES});
 });
 
 
@@ -41,20 +40,21 @@ if (latitude === "" || longitude === "") {
       description: description,
       category: category,
       date: date,
+      creator: "dummy",
       picPath: `/uploads/${req.file.filename}`,
-      picName: req.file.originalname,
       location: {
         type: "Point",
         coordinates:[req.body.latitude, req.body.longitude]
       }
+      //creator: req.user._id;
     });
 
     newPlan.save((err) => {
       if (err) {
-        res.render("newPlan", { message: "Something went wrong" });
+        res.render("newPlan", { message: "Something went wrong", types: TYPES});
       } else {
         //Aquí hay que meter la página de vista de detalle del plan creado
-        res.redirect("/");
+        res.redirect("/plans/list");
       }
   });
 });

@@ -35,9 +35,15 @@
             <span class="ccform-addon"><i class="fa fa-keyboard-o fa-2x" aria-hidden="true"></i></span>
             <input class="ccformfield" type="text" name="description" placeholder="Plan description" required>
         </div>
+
+
         <div class="ccfield-prepend">
            <span class="ccform-addon"><i class="fa fa-sort-alpha-asc fa-2x"></i></span>
-           <input class="ccformfield" type="text" name="category" placeholder="Category" required>
+            <select name="category" id="category">
+              <% types.forEach((category) => { %>
+                <option type="text" value="<%= category %>" class="ccformfield"> <%= category %> </option>
+            <%  }) %>
+            <input class="ccformfield" type="text" name="category" placeholder="Category" required>
        </div>
        <div class="ccfield-prepend">
           <span class="ccform-addon"><i class="fa fa-calendar fa-2x"></i></span>

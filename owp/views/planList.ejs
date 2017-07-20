@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+  </head>
+  <body>
+
+<div class="Plan-row row">
+
+    <h3 class="text-center">You may be interested in...</h3>
+
+    <% plans.forEach((plan) => { %>
+      <div class="col-sm-3 home-plan-box">
+
+        <a href="/plans/<%= plan._id %>"> <img src="<%= plan.picPath %>"> </a>
+
+        <div class="plan-info-wrapper">
+
+          <a class="title" href="/plans/<%= plan._id %>">
+            <strong><%= plan.title %></strong>
+          </a><br>
+
+          by <span class="light-text"><%= plan.creator %></span><br>
+          <span class="light-text description"><%= plan.description %></span>
+        </div>
+      </div>
+    <%  }) %>
+  </div>
+  
+</body>
+</html>
