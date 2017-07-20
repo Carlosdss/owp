@@ -10,7 +10,8 @@ const PlanSchema = new Schema({
   date : { type: Date, required: true },
   //location : { type: { type: String }, coordinates: [Number] },
   picPath : String,
-  picName : String
+  picName : String,
+  usersAssisting: []
 });
 
 PlanSchema.index({ location: '2dsphere' });

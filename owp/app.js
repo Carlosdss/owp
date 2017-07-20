@@ -10,6 +10,7 @@ const bcrypt        = require("bcrypt");
 const passport      = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const flash = require("connect-flash");
+const expressLayouts = require ("express-ejs-layouts");
 
 const index = require('./routes/index');
 const authRoutes = require("./routes/auth-routes");
@@ -59,8 +60,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -69,6 +69,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(expressLayouts);
+app.set("layout", "layouts/main-layout");
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+
 
 app.use('/', index);
 app.use('/', authRoutes);
