@@ -1,7 +1,6 @@
 const express    = require("express");
 const authRoutes = express.Router();
 const passport = require("passport");
-const ensureLogin = require("connect-ensure-login");
 
 // User model
 const User = require("../models/User");
@@ -63,9 +62,6 @@ authRoutes.post("/signup", (req, res, next) => {
   });
 });
 
-authRoutes.get("/private-page", ensureLogin.ensureLoggedIn(), (req, res) => {
-  res.render("private", { user: req.user });
-});
 
 authRoutes.get("/logout", (req, res) => {
   req.logout();

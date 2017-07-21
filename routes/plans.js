@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const passport = require("passport");
-const ensureLogin = require("connect-ensure-login");
 const multer = require('multer');
 const upload = multer({
   dest: './public/uploads/'
