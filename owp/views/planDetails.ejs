@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <title></title>
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -12,40 +12,40 @@
 </head>
 
 <body>
+
   <div class="container plan-container">
     <div class="row">
 
-      <div class=" plan-title">
-        <span id="title"> <%= plan.title %> <span id="creator"> by <%= plan.creator %> </span>
+      <div>
+        <div class="plan-head-1 col-sm-6"> <%= plan.title %>
+          <span id="creator">, by <%= plan.creator %> </span> </div>
+
+        <div class="plan-head-2 col-sm-6"> <%= plan.category %> </div>
+
       </div>
 
-      <div class="plan-category">
-        <%= plan.category %>
-      </div>
+      <br>
+      <br>
+
 
       <div class="plan-description">
         <%= plan.description %>
       </div>
 
-      <div class="plan-date">
-        <strong class="large-strong"><%= plan.date %></strong><br>
+
+      <div>
+        <div class="plan-bottom-1 col-sm-6"> <strong class="large-strong"><%= plan.date %></strong> </div>
+
+        <div class="plan-bottom-2 col-sm-6"> I´m in! </div>
       </div>
+
 
       <div class="plan-Pic">
         <img class="plan-image" src="<%= plan.picPath %>">
       </div>
 
-  </div>
+    </div>
 
-
-
-
-
-
-
-
-
-  </div>
 
   </div>
 

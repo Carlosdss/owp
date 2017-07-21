@@ -107,8 +107,8 @@ text-decoration: none;
 
  #map{
 	 height: 300px;
-	 width: 75%;
-	 margin-left: 12%;
+	 width: 81.2%;
+	 margin-left: 9.4%;
 	 margin-bottom: 1%;
  }
 
@@ -179,11 +179,64 @@ text-decoration: none;
   font-size: 1.1em;
 }
 
-#listImg{
+#title{
+	font-size: 3.5em;
+	font-weight: bold;
+}
+
+#creator{
+	font-size: 0.7em;
+	font-weight: lighter;
 }
 
 
+.plan-head-1{
+	font-size: 4em;
+	font-family: 'Lato', Arial, sans-serif;
+	padding-left: 0;
+}
 
-#plan-info-wrapper{
+.plan-head-2{
+	font-size: 2em;
+	font-family: 'Lato', Arial, sans-serif;
+	text-align: right;
+	padding-top: 2%;
+}
 
+.plan-category{
+	font-size: 3em;
+	font-family: 'Lato', Arial, sans-serif;
+}
+
+.plan-description, .plan-date{
+	font-size: 2em;
+	font-family: 'Lato', Arial, sans-serif;
+	margin-top: 4%;
+}
+
+.plan-bottom-1{
+	padding: 2%;
+	padding-left: 0;
+	font-size: 1.8em;
+}
+
+.plan-bottom-2{
+	padding-left: 0;
+	font-size: 2em;
+	font-weight: bold;
+	font-family: 'Lato', Arial, sans-serif;
+	text-align: center;
+	padding: 2%;
+	border: 2px solid white;
+	border-radius: 5px;
+}
+
+.plan-Pic{
+	padding-top: 3%;
+}
+
+.plan-image{
+	margin-top: 2%;
+	max-width:100%;
+	max-height:100%;
 }
