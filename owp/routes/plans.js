@@ -58,14 +58,13 @@ router.post("/newPlan", upload.single('photo'), function(req, res, next) {
     description: description,
     category: category,
     date: date,
-    creator: "dummy",
     picPath: `/uploads/${req.file.filename}`,
     picName: req.file.originalname,
+    creator: req.user._id,
     location: {
       type: "Point",
       coordinates: [req.body.latitude, req.body.longitude]
     }
-    //creator: req.user._id;
   });
 
   newPlan.save((err) => {

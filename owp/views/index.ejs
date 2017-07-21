@@ -1,38 +1,25 @@
 
-    <!DOCTYPE html>
-    <html>
 
-    <head>
-      <meta charset="utf-8">
-      <title></title>
-
-
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-      <!-- Latest compiled and minified JavaScript -->
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-    <link rel="stylesheet" href="/stylesheets/style.css">
-    </head>
-
-    <body>
-
+    <% if (user !== undefined) {%>
       <div class="indexCreatePlan">
-        <a href="/plans/newPlan"> Create a Plan </a>
+        <a href="/plans/newPlan" style="color: rgb(0, 148, 185)"> Create a Plan </a>
       </div>
+    <% } %>
 
+   <% if (user == undefined) {%>
       <div class="indexLogin">
-        <a href="/login"> Login </a>
+        <a href="/login" style="color: rgb(0, 148, 185)"> Login </a>
       </div>
+    <% } %>
 
+  <%if (user == undefined) {%>
       <div class="indexSignup">
-        <a href="/signup"> Signup </a>
+        <a href="/signup"  style="color: rgb(0, 148, 185)"> Signup </a>
       </div>
+  <% } %>
 
-
-      <div class="indexLogout">
-        <a href="/logout"> Logout </a>
+  <% if (user !== undefined) {%>
+      <div class="indexLogout" style="color: rgb(0, 148, 185)">
+        <a href="/logout" style="color: rgb(0, 148, 185)"> Logout </a>
       </div>
-
-    </body>
-
-    </html>
+     <% } %>

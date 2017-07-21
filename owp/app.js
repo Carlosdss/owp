@@ -62,8 +62,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // view engine setup
-
-
+app.use( (req, res, next) => {
+  res.locals.user = req.user;
+  next();
+});
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
