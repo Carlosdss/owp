@@ -6,6 +6,12 @@
       </div>
     <% } %>
 
+    <% if (user !== undefined) {%>
+      <div class="indexPlanList">
+        <a href="/plans/list" style="color: rgb(0, 148, 185)"> View plans </a>
+      </div>
+    <% } %>
+
    <% if (user == undefined) {%>
       <div class="indexLogin">
         <a href="/login" style="color: rgb(0, 148, 185)"> Login </a>

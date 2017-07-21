@@ -8,6 +8,7 @@ const upload = multer({
 });
 const TYPES = require('../models/plan-types');
 const Plan = require("../models/Plan");
+const Comment = require("../models/Comment");
 
 router.get("/list", (req, res, next) => {
   Plan.find({})
@@ -83,14 +84,37 @@ router.post("/newPlan", upload.single('photo'), function(req, res, next) {
 });
 
 router.get('/:id', /*checkOwnership,*/ (req, res, next) => {
-  Plan.findById(req.params.id, (err, plan) => {
-    if (err){return next(err);}
-      return res.render('planDetails', { plan });
-    });
+  Plan.findById(req.params.id).exec().then( plan => {
+      return Comment.find({plan_id: req.params.id}).then(comments => {
+        console.log(comments);
+        return res.render('planDetails', { plan, comments });
+      });
+  }).catch(e =>console.log(e));
+
 });
 
+router.post('/:id', (req, res, next) => {
+  const text = req.body.text;
+  const planID = req.params.id;
+  const creator = req.user._id;
 
+  if (text == ""){return;}
 
+  const newComment = Comment({
+    text: text,
+    plan_id: planID,
+    creator: creator
+  });
+
+  newComment.save((err) => {
+    if (err) {
+        console.log("error al guardar comment");
+    } else {
+      //Aquí hay que meter la página de vista de detalle del plan creado
+      res.redirect(`/plans/${req.params.id}`);
+    }
+  });
+});
 
 
 module.exports = router;

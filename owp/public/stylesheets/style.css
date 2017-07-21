@@ -258,7 +258,7 @@ text-decoration: none;
 }
 
 
-.indexCreatePlan, .indexLogin, .indexSignup, .indexLogout{
+.indexCreatePlan, .indexLogin, .indexSignup, .indexLogout, .indexPlanList{
  text-align: center;
  text-decoration: none;
  font-size: 3em;
@@ -267,5 +267,10 @@ text-decoration: none;
  border: 2px solid white;
  margin: 5%;
  background-color: white;
+}
 
+.ccformfieldComment{
+	margin-bottom:5%;
+	width:100%;
+	margin-left: 10%
 }
