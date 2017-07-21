@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const favicon = require('serve-favicon');
@@ -20,7 +21,9 @@ const User = require("./models/User");
 
 var app = express();
 
-mongoose.connect("mongodb://localhost/owp");
+const dburl = process.env.MONG_DB_URL;
+mongoose.connect(dburl).then( () => debug('DB Connected!'));
+
 
 app.use(session({
   secret: "owp",
