@@ -21,7 +21,7 @@ const User = require("./models/User");
 
 var app = express();
 
-const dburl = process.env.MONG_DB_URL;
+const dburl = process.env.MONGO_DB_URL;
 mongoose.connect(dburl).then( () => debug('DB Connected!'));
 
 

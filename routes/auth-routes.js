@@ -26,6 +26,7 @@ authRoutes.get("/signup", (req, res, next) => {
 });
 
 authRoutes.post("/signup", (req, res, next) => {
+  console.log("ping post signup")
   const username = req.body.username;
   const fullname = req.body.fullname;
   const email = req.body.email;
@@ -54,7 +55,7 @@ authRoutes.post("/signup", (req, res, next) => {
 
     newUser.save((err) => {
       if (err) {
-        res.render("auth/signup", { message: "Something went wrong" });
+        res.render("auth/signup", {message: "Something went wrong" });
       } else {
         res.redirect("/");
       }
