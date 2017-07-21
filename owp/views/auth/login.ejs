@@ -1,16 +1,58 @@
-<form action="/login" method="POST">
-  <div>
-    <label for="username">Username:</label>
-    <input type="text" name="username">
-  </div>
-  <div>
-    <label for="password">Password:</label>
-    <input type="password" name="password">
-  </div>
-  <% if (typeof message != "undefined") { %>
-    <div class="error-message"><%= message %></div>
-  <% } %>
-  <div>
-    <input type="submit" value="Log In">
-  </div>
-</form>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+  </head>
+  <body>
+    <!--
+      ****************************************
+      Contest Entry for Treehouse:
+      "Design a Contact Form"
+      Submitted by Lisa Wagner
+      ****************************************
+    -->
+
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+
+    <header class="ccheader">
+        <h1>Welcome to OWT!</h1>
+        <h2>Please, log in to start.</h2>
+    </header>
+    <div class="wrapper">
+        <form method="post" action="/login" class="ccform">
+
+
+          <div class="ccfield-prepend">
+              <span class="ccform-addon"><i class="fa fa-user-circle fa-2x"></i></span>
+              <input class="ccformfield" type="text" name="username" placeholder="User Name" required>
+          </div>
+
+        <div class="ccfield-prepend">
+           <span class="ccform-addon"><i class="fa fa-lock fa-2x"></i></span>
+           <input class="ccformfield" type="password" name="password" placeholder="Password" required>
+       </div>
+
+        <% if (typeof message !== "undefined") { %>
+          <div class="error-message"><%= message %></div>
+        <% } %>
+        <br><br>
+
+        <div class="ccfield-prepend">
+            <input class="ccbtn" type="submit" value="Submit">
+        </div>
+        </form>
+    </div>
+    <div class="credit">
+    <p id="creditName">OWT!</p>
+    <p>Privacy Policy</p>
+
+
+    <p>We collect no information about our users that is not supplied voluntarily through web forms or e-mail.
+        Any information collected in this manner is never shared with anyone unless expressly requested by the user.
+        We do not sell or reveal user information to anyone. </p>
+    </div>
+  </body>
+</html>

@@ -1,11 +1,12 @@
 module.exports = [
   "Theaters",
   "Cinemas",
-  "Restaurant",
+  "Music",
+  "Restaurants",
+  "Coffee shops",
   "Outdoor sports",
   "Indoor sports",
   "Education",
   "Reading",
-  "Coffee shops",
   "Shopping",
 ];
