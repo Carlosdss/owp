@@ -1,10 +1,10 @@
-/*const mongoose = require('mongoose');
+const mongoose = require('mongoose');
 const Schema   = mongoose.Schema;
 
-const userSchema = new Schema({
-  comment : { type: String, required: true },
-  creator : { type: Schema.Types.ObjectId, ref: 'User', required: true },
-  plan_id : { type: Schema.Types.ObjectId, ref: 'Plan', required: true },
+const commentSchema = new Schema({
+  text : { type: String, required: true },
+  //creator : { type: Schema.Types.ObjectId, ref: 'User', required: true },
+  plan_id : { type: Schema.Types.ObjectId, ref:'Plan', required: true },
 }, {
   timestamps: {
     createdAt: 'created_at',
@@ -12,5 +12,5 @@ const userSchema = new Schema({
   }
 });
 
-const User = mongoose.model('User', userSchema);
-module.exports = User;*/
+const Comment = mongoose.model('commentSchema', userSchema);
+module.exports = Comment;

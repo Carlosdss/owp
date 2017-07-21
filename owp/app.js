@@ -51,6 +51,8 @@ passport.use(new LocalStrategy((username, password, next) => {
     if (!bcrypt.compareSync(password, user.password)) {
       return next(null, false, { message: "Incorrect password" });
     }
+    console.log(user);
+    console.log("ping");
     return next(null, user);
   });
 }));

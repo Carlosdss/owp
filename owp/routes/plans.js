@@ -76,7 +76,9 @@ router.post("/newPlan", upload.single('photo'), function(req, res, next) {
       });
     } else {
       //Aquí hay que meter la página de vista de detalle del plan creado
-      res.redirect("/plans");
+      console.log(req.user);
+      console.log("ping");
+      res.redirect("/plans/list");
     }
   });
 });

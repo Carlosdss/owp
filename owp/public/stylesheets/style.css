@@ -11,11 +11,18 @@ body {
 	padding:0;
 	padding-bottom:60px;
 }
+
+a {
+text-decoration: none;
+}
+
 .ccheader {
 	margin: 0 auto;
 	padding: 2em;
 	text-align: center;
 }
+
+
 
 .ccheader h1 {
 	margin: 0;
@@ -239,4 +246,26 @@ text-decoration: none;
 	margin-top: 2%;
 	max-width:100%;
 	max-height:100%;
+}
+
+#listDescription{
+	font-size: 1.5em;
+	margin-top: 4%;
+}
+
+#listDate {
+	font-size: 1.6em;
+}
+
+
+.indexCreatePlan, .indexLogin, .indexSignup, .indexLogout{
+ text-align: center;
+ text-decoration: none;
+ font-size: 3em;
+ font-weight: bold;
+ color: white;
+ border: 2px solid white;
+ margin: 5%;
+ background-color: white;
+
 }
