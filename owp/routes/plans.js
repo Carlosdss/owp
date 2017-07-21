@@ -83,10 +83,17 @@ router.post("/newPlan", upload.single('photo'), function(req, res, next) {
   });
 });
 
-router.get('/:id', /*checkOwnership,*/ (req, res, next) => {
+router.get('/:id/in', (req, res, next) => {
+  console.log("hola");
   Plan.findById(req.params.id).exec().then( plan => {
+      plan.usersAssisting ++;
+      res.redirect("/plans/list");
+      }).catch(e =>console.log(e));
+});
+
+router.get('/:id', (req, res, next) => {
+  Plan.findById(req.params.id).exec().then(plan => {
       return Comment.find({plan_id: req.params.id}).then(comments => {
-        console.log(comments);
         return res.render('planDetails', { plan, comments });
       });
   }).catch(e =>console.log(e));

@@ -12,7 +12,7 @@ const PlanSchema = new Schema({
   date : { type: Date, required: true },
   location : { type: { type: String }, coordinates: [Number] },
   picPath : String,
-  usersAssisting: []
+  usersAssisting: { type :Number , default : 0}
 });
 
 PlanSchema.index({ location: '2dsphere' });

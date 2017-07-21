@@ -255,6 +255,7 @@ text-decoration: none;
 
 #listDate {
 	font-size: 1.6em;
+	padding-top: 4%;
 }
 
 
@@ -267,10 +268,4 @@ text-decoration: none;
  border: 2px solid white;
  margin: 5%;
  background-color: white;
-}
-
-.ccformfieldComment{
-	margin-bottom:5%;
-	width:100%;
-	margin-left: 10%
 }
